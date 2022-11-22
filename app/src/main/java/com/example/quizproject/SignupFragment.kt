@@ -79,7 +79,7 @@ class SignupFragment : Fragment() {
     }
 
     private fun inputcheck(fullname: String, contactno: String, username: String, password: String): Boolean{
-        return !(TextUtils.isEmpty(fullname) && TextUtils.isEmpty(contactno) && TextUtils.isEmpty(username) && TextUtils.isEmpty(password))
+        return !(TextUtils.isEmpty(fullname) || TextUtils.isEmpty(contactno) || TextUtils.isEmpty(username) || TextUtils.isEmpty(password))
     }
 
 }

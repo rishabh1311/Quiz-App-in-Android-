@@ -26,14 +26,19 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
+        val progressBar: ProgressBar = findViewById(R.id.progress_bar)
+
+
 
         mUserNmae = intent.getStringExtra(Constants.USER_NAME)
 
         mQuestionsList = Constants.getQuestions()
 
+        progressBar.max = mQuestionsList!!.size
+
         setQuestions()
 
-        val progressBar: ProgressBar = findViewById(R.id.progress_bar)
+
         val tv_progress: TextView = findViewById(R.id.tv_progress)
         val tv_question: TextView = findViewById(R.id.top_question)
         val iv_image: ImageView = findViewById(R.id.iv_image)
@@ -42,6 +47,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         val tv_option_three: TextView = findViewById(R.id.tv_option_three)
         val tv_option_four: TextView = findViewById(R.id.tv_option_four)
         var btn_submit: Button = findViewById(R.id.btn_submit)
+
+
 
         tv_option_one.setOnClickListener(this)
         tv_option_two.setOnClickListener(this)
